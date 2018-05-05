@@ -71,26 +71,32 @@
                           </footer>
                       
                         </div>  
-
- <script>
-      $("submit-btn").on("click", function(event) {
-                            event.preventDefault();
-                            var newReservation = {
-                              name: $("#name").val().trim(),
-                              phonenumber: $("#phonenumber").val().trim(),
-                              email: $("#email").val().trim(),
-                              uniqueid: $("#uniqueid").val().trim()
-                            };
+                        <script type="text/javascript">
+                          // QUESTION: What is this code doing?
+                          $("#submit-btn").on("click", function() {
+                            var newReservation = $("#newReservation").val().trim();
                        
-                          
-                            $.post("/reservation", newReservation)
-                              .then(function(data) {
-                                console.log("reservation.html", data);
-                                alert("Adding Reservation...");
-                              });
+                            // Using a RegEx Pattern to remove spaces from searchedCharacter
+                            // You can read more about RegEx Patterns later https://www.regexbuddy.com/regex.html
+                            // searchedCharacter = searchedCharacter.replace(/\s+/g, "").toLowerCase();
+                       
+                            // QUESTION: What does $.get do? What are the parameters it is expecting?
+                            $.get("/reservation" + newReservation, function(data) {
+                              console.log(data);
+                              if (data) {
+                                $("#stats").show();
+                                $("#reserve-name").text(data.name);
+                                $("#reserve-phone").text(data.phone);
+                                $("#reserve-email").text(data.email);
+                                $("#reserve-unique-id").text(data.id);
+                              }
+                              else {
+                                $("#name").text("");
+                                $("#stats").hide();
+                              }
+                            });
                           });
-                   
-     </script>
+                        </script>
                       
 </body>
 </html>

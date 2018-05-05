@@ -46,7 +46,26 @@
                             </div>
                           </footer>
                       
-                        </div>  
+        </div>
+         <script>
+                                $("submit-btn").on("click", function(event) {
+                                                      event.preventDefault();
+                                                      var newReservation = {
+                                                        name: $("#reserve-name").val().trim(),
+                                                        phonenumber: $("#reserve-phone").val().trim(),
+                                                        email: $("#reserve-email").val().trim(),
+                                                        uniqueid: $("#reserve-unique-id").val().trim()
+                                                      };
+                                                 
+                                                    
+                                                      $.post("/reservation", newReservation)
+                                                        .then(function(data) {
+                                                          console.log("reservation.html", data);
+                                                          alert("Adding Reservation...");
+                                                        });
+                                                    });
+                                             
+                               </script>
                       
 </body>
 </html>
