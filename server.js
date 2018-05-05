@@ -24,24 +24,24 @@ app.get("/", function(req, res) {
   res.sendFile(path.join(__dirname, "index.html"));
 });
 
-app.get("/tables ", function(req, res) {
-  res.sendFile(path.join(__dirname, "tables.html"));
+app.get("/table", function(req, res) {
+  res.sendFile(path.join(__dirname, "table.html"));
 });
 
-app.get("/reserve ", function(req, res) {
-  res.sendFile(path.join(__dirname, "reserve.html"));
+app.get("/reservation", function(req, res) {
+  res.sendFile(path.join(__dirname, "reservation.html"));
 });
 
-app.post("/reserve ", function(req, res) {
+app.post("/reservation", function(req, res) {
   var newReservation = req.body;
-  if (reservations.length <= 7) {
+  if (reservations.length <= 6) {
     reservations.push(newReservation);
     alert("Your reservation has been made!");
   } else {
     waitList.push(newReservation);
     alert("Your reservation has been added to the wait list :(");
   }
-  res.redirect(path.join(__dirname, "tables.html"));
+  res.redirect(path.join(__dirname, "table.html"));
   console.log(reservations);
   console.log(waitList);
   res.json(newReservation);
