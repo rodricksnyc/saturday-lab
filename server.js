@@ -5,7 +5,10 @@ const path = require("path");
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-const reserve = {};
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+
+const reservations = {};
 const waitList = {};
 
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -24,6 +27,8 @@ app.get("/reserve ", function(req, res) {
 });
 
 app.post("/reserve ", function(req, res) {
+  var newReservation = req.body;
+  reservations.push(newReservation);
   res.redirect(path.join(__dirname, "tables.html"));
 });
 
