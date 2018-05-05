@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Star Wars - Express</title>
+    <!-- Latest compiled and minified CSS & JS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="jumbotron">
+            <h1>Hot Restaurant</h1>
+            <h3>Make reservation Your </h3>
+            <hr>
+
+            <a href="/all">
+                <button class="btn btn-danger btn-lg">
+                    <span class="fa fa-th-list"></span> All Characters</button>
+            </a>
+        </div>
+        <div class="row">
+
+            <div class="col-lg-12">
+
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">
+                            <strong>Character Search</strong>
+                        </h3>
+                    </div>
+                    <div class="panel-body">
+                        <input type="text" id="character-search" class="form-control">
+                        <br>
+
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script type="text/javascript">
+
+        var tableArray = {
+                customerName: " ",
+                customerPhonenumber: 0,
+                customerEmail: " ",
+                customerUniqueid: 0,
+            };
+
+            modules.export = tableArray;
+
+            var reservationArray = {
+                    customerName: " ",
+                    customerPhonenumber: 0,
+                    customerEmail: " ",
+                    customerUniqueid: 0,
+                };
+
+                modules.export = reservationArray;
+
+
+
+    </script>
+
+</body>
+
+</html>
