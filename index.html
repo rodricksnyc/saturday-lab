@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="style.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 
@@ -18,35 +19,41 @@
         <div class="jumbotron">
             <h1 class="text-center">
                 <span class="fa fa-fire"></span>
-                <span class="glyphicon glyphicon-fire" aria-hidden="true"></span>
 
-                <div id="title">Hot Restaurant</div>
+                <div id="title">
+                    <span class="glyphicon glyphicon-fire" aria-hidden="true"></span>
+                    Hot Restaurant
+                </div>
+
             </h1>
-            <hr>
+            <!-- <hr> -->
             <div class="text-center">
-                <div id="secondline">
-                    We only have 5 tables! Book your seats before they are all gone!
+                <div class="reserve">
+                    <h2>
+                        We only have 5 tables! Book your seats before they are all gone!
+                    </h2>
                 </div>
             </div>
             <br>
 
             <div class="text-center">
-           
-                <a href="/reservation"><button class="btn btn-lg btn-primary">
+
+                <a href="/reservation">
+                    <button class="btn btn-lg btn-primary">
                         <span class="fa fa-list-alt"></span> Make Reservation</button>
 
-                <a href="/tables"><button class="btn btn-lg btn-danger">
-                      <span class="fa fa-home">View Tables</span>
-
-                </a> 
+                    <a href="/tables">
+                        <button class="btn btn-lg btn-danger">
+                            <span class="fa fa-home"></span>View Tables</button>
+                    </a>
             </div>
         </div>
-            <footer class="footer">
+        <footer class="footer">
             <div class="container">
-                <p>
+                <p class="footer">
                     <a href="/api/tables">API Table Link</a> |
                     <a href="/api/waitlist">API Wait List</a> |
-                    <a href="https://github.com/afhaque/HotRestaurant">GitHub Repo</a>
+                    <a href="https://github.com/">GitHub Repo</a>
                 </p>
             </div>
         </footer>
