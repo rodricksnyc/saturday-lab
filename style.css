@@ -3,9 +3,12 @@
 
 };
 
-#secondline {
+/* .reserve {
 
-    font-size: 40px;
-    /* font-family: 'Times New Roman', Times, serif; */
+    font-size: 100px;
+    font-family: 'Times New Roman', Times, serif;
+} */
+
+.footer {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
-
