@@ -18,13 +18,14 @@
                   <hr>
                   <h2 class="text-center">Current reservation and Waiting List</h2>
                   <br>
-            
+
                   <div class="text-center">
+
                     <a href="/reservation"><button class="btn btn-lg btn-primary"><span class="fa fa-list-alt"></span> Make Reservation</button></a>
                     <a href="/"><button class="btn btn-lg btn-danger"><span class="fa fa-home"></span>Home Button</button></a>
                   </div>
                 </div>
-            
+
                 <div class="row">
                   <div class="col-lg-12">
                         <div class="panel panel-default">
@@ -32,40 +33,64 @@
                                   <h4 class="panel-title">Table Reservation</h4>
                                 </div>
                                 <div class="panel-body">
-                      
+
                                 </div>
                               </div>
-                      
+
                             </div>
                           </div>
-                      
-                      
+
+
+                <div class="row">
+                  <div class="col-lg-12 col-sm-12">
+      <table class="table table-striped table-hover" style="width: 25%">
+  	    <thead>
+  	    	<tr>
+  				<th>Name</th>
+  				<th>Email</th>
+  				<th>Phone Number</th>
+          <th>Unique ID</th>
+  			</tr>
+  		</thead>
+
+  		<tbody id="tbody"></tbody>
+
+  	</table>
+</div>
+</div>
+
+
+
                           <footer class="footer">
                             <div class="container">
                               <p><a href="/api/tables">API Table Link</a> | <a href="/api/waitlist">API Wait List</a> | <a href="https://github.com/afhaque/HotRestaurant">GitHub Repo</a></p>
                             </div>
                           </footer>
-                      
+
         </div>
-         <script>
-                                $("submit-btn").on("click", function(event) {
-                                                      event.preventDefault();
-                                                      var newReservation = {
-                                                        name: $("#reserve-name").val().trim(),
-                                                        phonenumber: $("#reserve-phone").val().trim(),
-                                                        email: $("#reserve-email").val().trim(),
-                                                        uniqueid: $("#reserve-unique-id").val().trim()
-                                                      };
-                                                 
-                                                    
-                                                      $.post("/reservation", newReservation)
-                                                        .then(function(data) {
-                                                          console.log("reservation.html", data);
-                                                          alert("Adding Reservation...");
-                                                        });
-                                                    });
-                                             
-                               </script>
-                      
+        <script type="text/javascript">
+
+
+            $.get("/reservations", function(data) {
+              var newRow, name, email, phone, uniqueId;
+              console.log(data);
+                for (var i= 0; i < data.length; i++) {
+                   newRow = $('<tr>');
+                   name  = $('<td>');
+                   email  = $('<td>');
+                   phone  = $('<td>');
+                   uniqueId = $('<td>');
+                  name.text(data[i].name);
+                  email.text(data[i].email);
+                  phone.text(data[i].phonenumber);
+                  uniqueId.text(data[i].uniqueid);
+                  newRow.append(name).append(email).append(phone).append(uniqueId);
+                  $('#tbody').append(newRow);
+                }
+
+            });
+
+        </script>
+
 </body>
 </html>

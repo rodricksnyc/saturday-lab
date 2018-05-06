@@ -22,26 +22,37 @@ const waitList = [];
 // Routes
 app.get("/", function(req, res) {
   res.sendFile(path.join(__dirname, "index.html"));
+
 });
 
 app.get("/tables", function(req, res) {
   res.sendFile(path.join(__dirname, "table.html"));
+  // res.redirect("/reservation");
 });
 
 app.get("/reservation", function(req, res) {
   res.sendFile(path.join(__dirname, "reservation.html"));
+
 });
+
+app.get("/reservations", (req, res) => {
+res.json(reservations);
+
+})
+
 
 app.post("/reservation", function(req, res) {
   var newReservation = req.body;
+  // res.redirect("/tables");
+  console.log("Route ws hit");
+  console.log(newReservation);
   if (reservations.length <= 6) {
     reservations.push(newReservation);
-    alert("Your reservation has been made!");
   } else {
     waitList.push(newReservation);
-    alert("Your reservation has been added to the wait list :(");
+
   }
-  res.redirect(path.join(__dirname, "table.html"));
+  // res.redirect("/tables");
   console.log(reservations);
   console.log(waitList);
   res.json(newReservation);
